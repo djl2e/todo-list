@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <img src="../src/img/header-icon.png" alt="header icon">
+            <h1>Todo List</h1>
+        </div>
+        <button id="add-task">
+            <img src="../src/img/add.svg" alt="add icon">
+            <p>Add Task</p>
+        </button>
+    </div>
+    <div class="container">
+        <div class="side">
+            <div class="side-top">
+                <button id="all" class="current">
+                    <img src="../src/img/all.svg" alt="all icon">
+                    <p>All</p>
+                </button>
+                <button id="important">
+                    <img src="../src/img/important.svg" alt="important icon">
+                    <p>Important</p>
+                </button>
+                <button id="today">
+                    <img src="../src/img/today.svg" alt="today icon">
+                    <p>Today</p>
+                </button>  
+                <button id="week">
+                    <img src="../src/img/this-week.svg" alt="this week icon">
+                    <p>This Week</p>
+                </button>
+                <button id="late">
+                    <img src="../src/img/passed.svg" alt="late icon">
+                    <p>Late</p>
+                </button>
+            </div>
+            <div class="side-bottom">
+                <h2>Projects:</h2>
+                <div class="projects"></div>
+                <div class="new-project">
+                    <button id = "add-project">
+                        <img src="../src/img/add.svg" alt="add icon">
+                        <p>Add Project</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+        </div>
+    </div>
+    <div class="form"></div>
+    <div class="project-form"></div>
+</body>
+</html>
