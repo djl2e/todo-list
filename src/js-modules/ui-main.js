@@ -5,11 +5,11 @@ import minusImg from "../img/delete.svg";
 
 let currentPage = "all";
 const main = document.querySelector(".main");
-const today = new Date();
-today.setHours(0, 0, 0, 0);
 
 function display() {
     main.innerHTML = "";
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
     const mainHeader = document.createElement("h2");
     mainHeader.textContent = currentPage.charAt(0).toUpperCase() + currentPage.slice(1);

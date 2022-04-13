@@ -1,22 +1,46 @@
+import { format } from "date-fns";
 import createItem from "./item.js";
 
-const items = [];
-const projects = [];
-const customProjects = [];
+const initialProjects = ["all", "important", "today", "week", "late"];
+
+let items = [];
+let projects = [];
+let customProjects = [];
 
 function setUpProjects() {
-    const initialProjects = ["all", "important", "today", "week", "late"];
-    for (let i = 0; i < initialProjects.length; i++) {
-        addProject(initialProjects[i]);
+
+    if (localStorage.getItem("customProjects")) {
+        customProjects = JSON.parse(localStorage.getItem("customProjects"));
     }
+
+    if (localStorage.getItem("projects")) {
+        projects = JSON.parse(localStorage.getItem('projects'));
+    } else {
+        for (let i = 0; i < initialProjects.length; i++) {
+            addProject(initialProjects[i]);
+        }
+    }
+
+    if (localStorage.getItem("items")) {
+        let tempItems = JSON.parse(localStorage.getItem('items'));
+        for (let i = 0; i < tempItems.length; i++) {
+            let tempItem = tempItems[i];
+            let dateInput = new Date(tempItem.dueDate);
+            addItem(tempItem.title, tempItem.description, dateInput,
+                tempItem.isImportant, tempItem.project);
+        }
+    }
+
 }
 
 function addProject(name) {
     projects.push(name);
+    localStorage.setItem('projects', JSON.stringify(projects));
 }
 
 function addCustomProject(name) {
     customProjects.push(name);
+    localStorage.setItem('customProjects', JSON.stringify(customProjects));
 }
 
 function getAllItems() {
@@ -54,6 +78,7 @@ function deleteProject(name) {
 function addItem(title, description, inputDate, isImportant, project) {
     const newItem = createItem(title, description, inputDate, isImportant, project);
     items.push(newItem);
+    localStorage.setItem('items', JSON.stringify(items));
 }
 
 function getItemByTitle(title) {

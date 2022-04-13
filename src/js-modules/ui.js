@@ -77,6 +77,8 @@ function addItemHelper() {
     const taskImportance = document.querySelector("#is-important");
     const taskProject = document.querySelector("#project-input");
 
+    console.log(taskDueDate.value);
+
     add(taskTitle.value, taskDescription.value, taskDueDate.value, 
         taskImportance.checked, taskProject.value);
 

@@ -96,10 +96,6 @@ button:hover {
     width: var(--side-width);
 }
 
-.side .current {
-    /* add effect to current tab */
-}
-
 .side-top {
     display: flex;
     flex-direction: column;

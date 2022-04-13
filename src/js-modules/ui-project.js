@@ -13,6 +13,7 @@ function addToAllProjects(name) {
 function displayProjects() {
     projectDisplay.innerHTML = "";
     const customProjects = getCustomProjects();
+    console.log(customProjects);
     for (let i = 0; i < customProjects.length; i++) {
         let currentProject = customProjects[i];
 
