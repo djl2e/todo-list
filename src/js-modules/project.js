@@ -14,7 +14,6 @@ let projects = [];
 let customProjects = [];
 
 function setUpProjects() {
-    localStorage.clear();
 
     if (localStorage.getItem("customProjects")) {
         customProjects = JSON.parse(localStorage.getItem("customProjects"));
