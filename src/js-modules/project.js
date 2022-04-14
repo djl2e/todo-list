@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import createItem from "./item.js";
+import headerIconImage from "../img/header-icon.png";
 import allIconImage from "../img/all.svg";
 import importantIconImage from "../img/important.svg";
 import todayIconImage from "../img/today.svg";
@@ -41,6 +42,8 @@ function setUpProjects() {
 }
 
 function loadImages() {
+    const headerIcon = document.querySelector("#header-icon");
+    const headerAddIcon = document.querySelector("#header-add-icon");
     const allIcon = document.querySelector("#all-icon");
     const importantIcon = document.querySelector("#important-icon");
     const todayIcon = document.querySelector("#today-icon");
@@ -48,6 +51,8 @@ function loadImages() {
     const lateIcon = document.querySelector("#late-icon");
     const addIcon = document.querySelector("#add-project");
 
+    headerIcon.src = headerIconImage;
+    headerAddIcon.src = addIconImage;
     allIcon.src = allIconImage;
     importantIcon.src = importantIconImage;
     todayIcon.src = todayIconImage;
