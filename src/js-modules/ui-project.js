@@ -13,7 +13,6 @@ function addToAllProjects(name) {
 function displayProjects() {
     projectDisplay.innerHTML = "";
     const customProjects = getCustomProjects();
-    console.log(customProjects);
     for (let i = 0; i < customProjects.length; i++) {
         let currentProject = customProjects[i];
 
@@ -61,6 +60,7 @@ function hideProjectForm() {
     addProjectButton.setAttribute("id", "add-project");
     
     const buttonImg = new Image();
+    buttonImg.setAttribute("id", "add-project-icon");
     buttonImg.src = plusImg;
     
     const buttonContent = document.createElement("p");

@@ -1,5 +1,11 @@
 import { format } from "date-fns";
 import createItem from "./item.js";
+import allIconImage from "../img/all.svg";
+import importantIconImage from "../img/important.svg";
+import todayIconImage from "../img/today.svg";
+import thisWeekIconImage from "../img/this-week.svg";
+import lateIconImage from "../img/passed.svg";
+import addIconImage from "../img/add.svg";
 
 const initialProjects = ["all", "important", "today", "week", "late"];
 
@@ -31,6 +37,23 @@ function setUpProjects() {
         }
     }
 
+    loadImages();
+}
+
+function loadImages() {
+    const allIcon = document.querySelector("#all-icon");
+    const importantIcon = document.querySelector("#important-icon");
+    const todayIcon = document.querySelector("#today-icon");
+    const thisWeekIcon = document.querySelector("#this-week-icon");
+    const lateIcon = document.querySelector("#late-icon");
+    const addIcon = document.querySelector("#add-project");
+
+    allIcon.src = allIconImage;
+    importantIcon.src = importantIconImage;
+    todayIcon.src = todayIconImage;
+    thisWeekIcon.src = thisWeekIconImage;
+    lateIcon.src = lateIconImage;
+    addIcon.src = addIconImage;
 }
 
 function addProject(name) {
