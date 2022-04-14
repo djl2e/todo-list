@@ -14,6 +14,7 @@ let projects = [];
 let customProjects = [];
 
 function setUpProjects() {
+    localStorage.clear();
 
     if (localStorage.getItem("customProjects")) {
         customProjects = JSON.parse(localStorage.getItem("customProjects"));
@@ -48,7 +49,7 @@ function loadImages() {
     const todayIcon = document.querySelector("#today-icon");
     const thisWeekIcon = document.querySelector("#this-week-icon");
     const lateIcon = document.querySelector("#late-icon");
-    const addIcon = document.querySelector("#add-project");
+    const addIcon = document.querySelector("#add-project-icon");
 
     headerIcon.src = headerIconImage;
     headerAddIcon.src = addIconImage;
@@ -62,12 +63,12 @@ function loadImages() {
 
 function addProject(name) {
     projects.push(name);
-    localStorage.setItem('projects', JSON.stringify(projects));
+    storeProjects();
 }
 
 function addCustomProject(name) {
     customProjects.push(name);
-    localStorage.setItem('customProjects', JSON.stringify(customProjects));
+    storeCustomProjects();
 }
 
 function getAllItems() {
@@ -99,13 +100,17 @@ function deleteProject(name) {
             items.splice(i, 1);
         }
     }
+
+    storeProjects();
+    storeCustomProjects();
+    storeItems();
 }
 
 
 function addItem(title, description, inputDate, isImportant, project) {
     const newItem = createItem(title, description, inputDate, isImportant, project);
     items.push(newItem);
-    localStorage.setItem('items', JSON.stringify(items));
+    storeItems();
 }
 
 function getItemByTitle(title) {
@@ -118,10 +123,24 @@ function deleteItemByTitle(title) {
         let item = items[i];
         if (item.getTitle() == title) {
             items.splice(i, 1);
+            storeItems();
             return;
         }
     }
 }
 
+function storeItems() {
+    localStorage.setItem('items', JSON.stringify(items));
+}
+
+function storeProjects() {
+    localStorage.setItem('projects', JSON.stringify(projects));
+}
+
+
+function storeCustomProjects() {
+    localStorage.setItem('customProjects', JSON.stringify(customProjects));
+}
+
 export { setUpProjects, addProject, addCustomProject, getAllItems, getProjects, getCustomProjects,
-        deleteProject, addItem, getItemByTitle, deleteItemByTitle}
+        deleteProject, addItem, getItemByTitle, deleteItemByTitle, storeItems}

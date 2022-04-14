@@ -1,4 +1,4 @@
-import plusImg from "../img/add.svg";
+import addImg from "../img/add.svg";
 import projectImg from "../img/project.svg";
 import { addProject, addCustomProject, getCustomProjects } from "./project.js";
 
@@ -57,11 +57,12 @@ function hideProjectForm() {
     newProjectContainer.innerHTML = "";
 
     const addProjectButton = document.createElement("button");
-    addProjectButton.setAttribute("id", "add-project");
+    addProjectButton.setAttribute("id", "add-project-icon");
     
     const buttonImg = new Image();
     buttonImg.setAttribute("id", "add-project-icon");
-    buttonImg.src = plusImg;
+    buttonImg.src = addImg;
+    console.log(addImg);
     
     const buttonContent = document.createElement("p");
     buttonContent.textContent = "Add Project";

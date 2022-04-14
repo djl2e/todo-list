@@ -32,7 +32,7 @@ function handleItem() {
         const action = task.classList.value;
 
         if (action == "project-delete-button") {
-            deleteProject(task.parentNode.firstChild.textContent);
+            deleteProject(task.parentNode.firstChild.textContent.toLowerCase());
             displayProjects();
             changeCurrentPage("all");
             return;

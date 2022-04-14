@@ -1,5 +1,5 @@
 import format from "date-fns/format";
-import { getCustomProjects, addItem, getItemByTitle, deleteItemByTitle } from "./project.js";
+import { getCustomProjects, addItem, getItemByTitle, deleteItemByTitle, storeItems } from "./project.js";
 
 const form = document.querySelector(".form");
 
@@ -155,6 +155,8 @@ function completeEdit(title) {
     if (projectInput.value != item.getProject()) {
         item.changeProject(projectInput.value);
     }
+
+    storeItems();
 }
 
 function viewItem(title) {
