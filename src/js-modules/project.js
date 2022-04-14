@@ -1,4 +1,3 @@
-import { format } from "date-fns";
 import createItem from "./item.js";
 import headerIconImage from "../img/header-icon.png";
 import allIconImage from "../img/all.svg";
